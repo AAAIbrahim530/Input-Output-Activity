@@ -21,19 +21,40 @@
         android:id="@+id/Click"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginStart="159dp"
+        android:layout_marginTop="167dp"
+        android:layout_marginEnd="142dp"
+        android:layout_marginBottom="141dp"
         android:text="Click Me !"
-        tools:layout_editor_absoluteX="159dp"
-        tools:layout_editor_absoluteY="542dp" />
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/Welcome" />
 
     <EditText
         android:id="@+id/editText"
         style="@style/Widget.Material3.TextInputEditText.OutlinedBox.Dense"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginStart="27dp"
+        android:layout_marginTop="32dp"
+        android:layout_marginEnd="32dp"
+        android:layout_marginBottom="24dp"
         android:ems="10"
         android:inputType="text"
         android:text="Name"
-        tools:layout_editor_absoluteX="27dp"
-        tools:layout_editor_absoluteY="32dp" />
+        app:layout_constraintBottom_toTopOf="@+id/zuluswitch"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <Switch
+        android:id="@+id/zuluswitch"
+        android:layout_width="133dp"
+        android:layout_height="90dp"
+        android:layout_marginTop="244dp"
+        android:text="Zulu"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:layout_editor_absoluteX="151dp" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
