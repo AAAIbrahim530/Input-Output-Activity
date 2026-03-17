@@ -5,6 +5,7 @@
     android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="#00BCD4"
     tools:context=".MainActivity">
 
     <TextView
@@ -33,7 +34,7 @@
 
     <EditText
         android:id="@+id/editText"
-        style="@style/Widget.Material3.TextInputEditText.OutlinedBox.Dense"
+        style="@android:style/Widget.Material.EditText"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="27dp"
@@ -43,6 +44,7 @@
         android:ems="10"
         android:inputType="text"
         android:text="Name"
+        android:textAppearance="@style/TextAppearance.AppCompat.Display1"
         app:layout_constraintBottom_toTopOf="@+id/zuluswitch"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
