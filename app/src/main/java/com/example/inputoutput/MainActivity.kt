@@ -37,7 +37,7 @@ class MainActivity : AppCompatActivity() {
             } else {
                 hello = "hello, ${nameTxtField.text}!"
 
-                if (nameTxtField.text.toString() =="Sam")
+                if (nameTxtField.text.toString() =="Sasha")
                     hello="Hey, ${nameTxtField.text}!"
                 else
                     hello = "hello, ${nameTxtField.text}"
