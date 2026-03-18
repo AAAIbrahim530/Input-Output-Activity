@@ -2,8 +2,10 @@ package com.example.inputoutput
 
 import android.annotation.SuppressLint
 import android.os.Bundle
+import android.widget.ArrayAdapter
 import android.widget.Button
 import android.widget.EditText
+import android.widget.Spinner
 import android.widget.Switch
 import android.widget.TextView
 import android.widget.Toast
@@ -13,6 +15,19 @@ import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
 
 class MainActivity : AppCompatActivity() {
+    enum class Languages {
+        ENGLISH,
+        NDEBELE,
+        PEDI,
+        SOTHO,
+        SWATI,
+        TSONGA,
+        TSWANA,
+        VENDA,
+        XHOSA,
+        ZULU,
+        AFRIKAANS
+    }
     @SuppressLint("SetTextI18n")
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -21,6 +36,10 @@ class MainActivity : AppCompatActivity() {
         val clickmebtn = findViewById<Button>(R.id.Click)
         val welcomeTxt = findViewById<TextView>(R.id.Welcome)
         val nameTxtField = findViewById<EditText>(R.id.editText)
+        val zuluSwitch = findViewById<Switch>(R.id.zuluswitch)
+        val languagespinner = findViewById<Spinner>(R.id.Spinner)
+        languagespinner.adapter = ArrayAdapter<MainActivity.Languages>(this,
+            android.R.layout.simple_list_item_1, Languages.values())
         clickmebtn?.setOnClickListener {
             Toast.makeText(
                 this@MainActivity,
@@ -28,20 +47,30 @@ class MainActivity : AppCompatActivity() {
             ).show()
             welcomeTxt.text = "Welcome, ${nameTxtField.text}!"
         }
-        val zuluSwitch = findViewById<Switch>(R.id.zuluswitch)
+
 
         clickmebtn?.setOnClickListener {
-            var hello: String
-            if (zuluSwitch.isChecked) {
-                hello = "molo, ${nameTxtField.text}!"
-            } else {
-                hello = "hello, ${nameTxtField.text}!"
-
-                if (nameTxtField.text.toString() =="Sasha")
-                    hello="Hey, ${nameTxtField.text}!"
-                else
-                    hello = "hello, ${nameTxtField.text}"
+            var hello: String = ""
+            var zulu: Boolean = zuluSwitch.isChecked
+            var age: Int = 20
+            var language = languagespinner.selectedItem as Languages
+            when(language) {
+                Languages.ZULU -> hello = "molo, $nameTxtField"
+                else -> hello = "hello, $nameTxtField"
             }
+//            if (zulu) {
+//                hello = "molo, ${nameTxtField.text}!"
+//            } else {
+//                hello = "hello, ${nameTxtField.text}!"
+//
+//                if ((nameTxtField.text.toString() =="Sam" ||
+//                    nameTxtField.text.toString() == "Samantha")
+//                    && age > 20) {
+//                    hello = "Hey, ${nameTxtField.text}!"
+//                } else{
+//                    hello = "hello, ${nameTxtField.text}!"
+//                }
+//            }
         }
 
         ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main)) { v, insets ->
